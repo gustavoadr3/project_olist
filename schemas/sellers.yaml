@@ -1,0 +1,9 @@
+table: sellers
+source: olist
+layer: raw
+
+columns:
+  - seller_id
+  - seller_zip_code_prefix
+  - seller_city
+  - seller_state

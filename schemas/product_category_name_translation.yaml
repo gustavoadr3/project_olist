@@ -1,0 +1,7 @@
+table: product_category_name_translation
+source: olist
+layer: raw
+
+columns:
+  - product_category_name
+  - product_category_name_english
