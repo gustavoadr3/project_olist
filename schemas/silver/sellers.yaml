@@ -1,0 +1,33 @@
+table:
+  name: olist_sellers_dataset
+  dataset: sellers
+  description: Tabela Silver de vendedores do Olist (dados tratados, sem regras de negócio)
+
+load:
+  mode: truncate
+  source:
+    layer: raw
+    format: csv
+    path: gs://bucket_olist/raw/olist/sellers/
+
+
+columns:
+  - name: seller_id
+    type: str
+    nullable: false
+    description: Identificador único do vendedor
+
+  - name: seller_zip_code_prefix
+    type: str
+    nullable: true
+    description: cep do vendedor
+
+  - name: seller_city
+    type: str
+    nullable: true
+    description: cidade
+
+  - name: seller_state
+    type: str
+    nullable: true
+    description: estado

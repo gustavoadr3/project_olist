@@ -1,0 +1,48 @@
+table:
+  name: olist_order_items_dataset
+  dataset: orders_items
+  description: Tabela Silver de items dos pedidos do Olist (dados tratados, sem regras de negócio)
+
+load:
+  mode: truncate
+  source:
+    layer: raw
+    format: csv
+    path: gs://bucket_olist/raw/olist/order_items/
+
+
+columns:
+  - name: order_id
+    type: str
+    nullable: false
+    description: Identificador único do pedido
+
+  - name: order_item_id
+    type: int
+    nullable: false
+    description: Identificador do pedido
+
+  - name: product_id
+    type: str
+    nullable: false
+    description: Identificador do produto
+
+  - name: seller_id
+    type: str
+    nullable: false
+    description: ID da venda
+
+  - name: shipping_limit_date
+    type: TIMESTAMP
+    nullable: false
+    description: Data limite do envio
+
+  - name: price
+    type: float
+    nullable: true
+    description: preco do produto
+
+  - name: freight_value
+    type: float
+    nullable: true
+    description: valor do frete

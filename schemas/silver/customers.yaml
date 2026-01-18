@@ -1,0 +1,37 @@
+table:
+  name: olist_customers_dataset
+  dataset: customers
+  description: Tabela Silver de clientes do Olist (dados tratados, sem regras de negócio)
+
+load:
+  mode: truncate
+  source:
+    layer: raw
+    format: csv
+    path: gs://bucket_olist/raw/olist/customers/
+
+columns:
+  - name: customer_id
+    type: str
+    nullable: false
+    description: Identificador único do cliente
+
+  - name: customer_unique_id
+    type: str
+    nullable: false
+    description: Identificador do cliente
+
+  - name: customer_zip_code_prefix
+    type: str
+    nullable: true
+    description: CEP do cliente
+
+  - name: customer_city
+    type: str
+    nullable: true
+    description: cidade do cliente
+
+  - name: customer_state
+    type: str
+    nullable: true
+    description: estado do cliente

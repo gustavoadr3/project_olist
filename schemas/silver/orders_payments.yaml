@@ -1,0 +1,38 @@
+table:
+  name: olist_order_payments_dataset
+  dataset: order_payments
+  description: Tabela Silver de vendedores do Olist (dados tratados, sem regras de negócio)
+
+load:
+  mode: truncate
+  source:
+    layer: raw
+    format: csv
+    path: gs://bucket_olist/raw/olist/order_payments/
+
+
+columns:
+  - name: order_id
+    type: str
+    nullable: false
+    description: Identificador único do produto
+
+  - name: payment_sequential
+    type: int
+    nullable: true
+    description: pagamento sequencial
+
+  - name: payment_type
+    type: str
+    nullable: false
+    description: tipo de pagamento
+
+  - name: payment_installments
+    type: int
+    nullable: false
+    description: pagamento parcelado
+
+  - name: payment_value
+    type: float
+    nullable: false
+    description: valor do pagamento

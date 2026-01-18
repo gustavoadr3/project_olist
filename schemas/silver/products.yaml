@@ -1,0 +1,58 @@
+table:
+  name: olist_products_dataset
+  dataset: products
+  description: Tabela Silver de produtos do Olist (dados tratados, sem regras de negócio)
+
+load:
+  mode: truncate
+  source:
+    layer: raw
+    format: csv
+    path: gs://bucket_olist/raw/olist/products/
+
+
+columns:
+  - name: product_id
+    type: str
+    nullable: false
+    description: Identificador único do produto
+
+  - name: product_category_name
+    type: str
+    nullable: true
+    description: categoria do produto
+
+  - name: product_name_lenght
+    type: float
+    nullable: true
+    description: qtd de caracteres do nome do produto
+
+  - name: product_description_lenght
+    type: float
+    nullable: true
+    description: qtd de caracteres da descricao do produto
+
+  - name: product_photos_qty
+    type: float
+    nullable: true
+    description: qtd de fotos do produto
+
+  - name: product_weight_g
+    type: float
+    nullable: true
+    description: peso do produto
+
+  - name: product_length_cm
+    type: float
+    nullable: true
+    description: comprimento do produto
+
+  - name: product_height_cm
+    type: float
+    nullable: true
+    description: altura do produto
+
+  - name: product_width_cm
+    type: float
+    nullable: true
+    description: largura do produto

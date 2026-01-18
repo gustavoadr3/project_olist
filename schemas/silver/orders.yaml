@@ -1,0 +1,57 @@
+table:
+  name: olist_orders_dataset
+  dataset: orders
+  description: Tabela Silver de pedidos do Olist (dados tratados, sem regras de negócio)
+
+load:
+  mode: truncate
+  source:
+    layer: raw
+    format: csv
+    path: gs://bucket_olist/raw/olist/orders/
+
+partition:
+  type: time
+  column: order_purchase_timestamp
+  granularity: day
+
+columns:
+  - name: order_id
+    type: str
+    nullable: false
+    description: Identificador único do pedido
+
+  - name: customer_id
+    type: str
+    nullable: false
+    description: Identificador do cliente
+
+  - name: order_status
+    type: str
+    nullable: false
+    description: Status atual do pedido
+
+  - name: order_purchase_timestamp
+    type: TIMESTAMP
+    nullable: false
+    description: Data e hora da compra
+
+  - name: order_approved_at
+    type: TIMESTAMP
+    nullable: true
+    description: Data e hora de aprovação do pedido
+
+  - name: order_delivered_carrier_date
+    type: TIMESTAMP
+    nullable: true
+    description: Data de envio ao transportador
+
+  - name: order_delivered_customer_date
+    type: TIMESTAMP
+    nullable: true
+    description: Data de entrega ao cliente
+
+  - name: order_estimated_delivery_date
+    type: TIMESTAMP
+    nullable: true
+    description: Data estimada de entrega
