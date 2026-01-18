@@ -8,6 +8,7 @@ resource "google_storage_bucket" "bucket_olist" {
   location = "US"
   storage_class = "STANDARD"
   uniform_bucket_level_access = true
+  force_destroy = true
 }
 
 resource "google_bigquery_dataset" "dataset_olist" {
