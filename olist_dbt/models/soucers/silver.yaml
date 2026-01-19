@@ -1,0 +1,13 @@
+version: 2
+
+sources:
+  - name: olist_silver
+    database: projectolist-483623
+    schema: olist_silver
+    tables:
+      - name: customers
+      - name: order_payments
+      - name: orders
+      - name: orders_items
+      - name: products
+      - name: sellers
