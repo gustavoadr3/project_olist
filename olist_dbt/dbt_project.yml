@@ -34,3 +34,8 @@ models:
     # Config indicated by + and applies to all files under models/example/
     gold:
       +materialized: table
+      +schema: olist_gold
+
+    staging:
+      +materialized: table
+      +schema: olist_staging
