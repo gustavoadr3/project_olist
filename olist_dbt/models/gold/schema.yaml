@@ -1,0 +1,63 @@
+version: 2
+
+models:
+  - name: dClientes
+    description: Dimensão de clientes
+    columns:
+      - name: id_cliente
+        tests: [not_null, unique]
+
+  - name: dProdutos
+    description: Dimensão de produtos
+    columns:
+      - name: id_produto
+        tests: [not_null, unique]
+
+  - name: dVendedores
+    description: Dimensão de vendedores
+    columns:
+      - name: id_vendedor
+        tests: [not_null, unique]
+
+  - name: fVendas
+    description: Fato de vendas (1 linha = 1 item de pedido)
+
+    tests:
+      - unique:
+          column_name: "concat(id_pedido, '-', cast(id_item_pedido as string))"
+
+
+    columns:
+      - name: id_pedido
+        tests: [not_null]
+
+      - name: id_item_pedido
+        tests: [not_null]
+
+      - name: id_cliente
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dClientes')
+              field: id_cliente
+
+      - name: id_produto
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dProdutos')
+              field: id_produto
+
+      - name: id_vendedor
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dVendedores')
+              field: id_vendedor
+
+      - name: id_data
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dCalendario')
+              field: id_data
