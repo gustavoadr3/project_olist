@@ -1,4 +1,3 @@
-from loguru import logger
 from google.cloud import storage
 from scripts.validations.validation_yaml import load_yaml
 from scripts.validations.validation_csv import load_csv
