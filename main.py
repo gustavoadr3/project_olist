@@ -27,7 +27,7 @@ def main():
     df_products_silver = validation_coluns(func_read=read_bucket, client_json=client_json, func_yaml=read_yaml, path_yaml=r'schemas/silver/products.yaml')
     df_sellers_silver = validation_coluns(func_read=read_bucket, client_json=client_json, func_yaml=read_yaml, path_yaml=r'schemas/silver/sellers.yaml')
     df_payments_silver = validation_coluns(func_read=read_bucket, client_json=client_json, func_yaml=read_yaml, path_yaml=r'schemas/silver/orders_payments.yaml')
-    write_silver_bigquery(client_json=client_json, df_gcp=df_payments_silver, func=read_yaml, path_yaml= r'schemas/silver/orders_paymentsbee.yaml')
+    write_silver_bigquery(client_json=client_json, df_gcp=df_payments_silver, func=read_yaml, path_yaml= r'schemas/silver/orders_payments.yaml')
     write_silver_bigquery(client_json=client_json, df_gcp=df_sellers_silver, func=read_yaml, path_yaml= r'schemas/silver/sellers.yaml')
     write_silver_bigquery(client_json=client_json, df_gcp=df_products_silver, func=read_yaml, path_yaml= r'schemas/silver/products.yaml')
     write_silver_bigquery(client_json=client_json, df_gcp=df_orders_items_silver, func=read_yaml, path_yaml= r'schemas/silver/orders_items.yaml')
