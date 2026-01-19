@@ -1,23 +1,42 @@
 version: 2
 
 models:
+
   - name: dClientes
     description: Dimensão de clientes
     columns:
       - name: id_cliente
-        tests: [not_null, unique]
+        description: Chave primária do cliente
+        tests:
+          - not_null
+          - unique
 
   - name: dProdutos
     description: Dimensão de produtos
     columns:
       - name: id_produto
-        tests: [not_null, unique]
+        description: Chave primária do produto
+        tests:
+          - not_null
+          - unique
 
   - name: dVendedores
     description: Dimensão de vendedores
     columns:
       - name: id_vendedor
-        tests: [not_null, unique]
+        description: Chave primária do vendedor
+        tests:
+          - not_null
+          - unique
+
+  - name: dCalendario
+    description: Dimensão calendário
+    columns:
+      - name: id_data
+        description: Chave primária da data
+        tests:
+          - not_null
+          - unique
 
   - name: fVendas
     description: Fato de vendas (1 linha = 1 item de pedido)
@@ -26,15 +45,19 @@ models:
       - unique:
           column_name: "concat(id_pedido, '-', cast(id_item_pedido as string))"
 
-
     columns:
       - name: id_pedido
-        tests: [not_null]
+        description: Identificador do pedido
+        tests:
+          - not_null
 
       - name: id_item_pedido
-        tests: [not_null]
+        description: Identificador do item dentro do pedido
+        tests:
+          - not_null
 
       - name: id_cliente
+        description: Cliente do pedido
         tests:
           - not_null
           - relationships:
@@ -42,6 +65,7 @@ models:
               field: id_cliente
 
       - name: id_produto
+        description: Produto vendido
         tests:
           - not_null
           - relationships:
@@ -49,6 +73,7 @@ models:
               field: id_produto
 
       - name: id_vendedor
+        description: Vendedor do item
         tests:
           - not_null
           - relationships:
@@ -56,6 +81,41 @@ models:
               field: id_vendedor
 
       - name: id_data
+        description: Data da compra
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dCalendario')
+              field: id_data
+
+  - name: fPagamentos
+    description: Fato financeira de pagamentos (1 linha = 1 pagamento de pedido)
+
+    tests:
+      - unique:
+          column_name: "concat(id_pedido, '-', cast(sequencia_pagamento as string))"
+
+    columns:
+      - name: id_pedido
+        description: Identificador do pedido
+        tests:
+          - not_null
+
+      - name: sequencia_pagamento
+        description: Sequência do pagamento dentro do pedido
+        tests:
+          - not_null
+
+      - name: id_cliente
+        description: Cliente do pagamento
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dClientes')
+              field: id_cliente
+
+      - name: id_data
+        description: Data do pagamento (data da compra)
         tests:
           - not_null
           - relationships:

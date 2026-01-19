@@ -44,3 +44,19 @@ Runtime Error
 [0m17:25:57.891577 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10a000dd0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10a003f10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10a003e10>]}
 [0m17:25:57.891753 [debug] [MainThread]: Flushing usage events
 [0m17:25:58.518794 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m18:09:04.112096 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10b1ef410>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10b1edf50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10b1ea590>]}
+
+
+============================== 18:09:04.115761 | e73cd2dd-96bd-46c7-a2d4-037b06bb8be6 ==============================
+[0m18:09:04.115761 [info ] [MainThread]: Running with dbt=1.11.2
+[0m18:09:04.116117 [debug] [MainThread]: running dbt with arguments {'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'quiet': 'False', 'use_colors': 'True', 'debug': 'False', 'invocation_command': 'dbt run --select fPagamentos.sql', 'log_cache_events': 'False', 'introspect': 'True', 'version_check': 'True', 'partial_parse': 'True', 'warn_error': 'None', 'fail_fast': 'False', 'no_print': 'None', 'write_json': 'True', 'empty': 'False', 'indirect_selection': 'eager', 'log_format': 'default', 'cache_selected_only': 'False', 'target_path': 'None', 'profiles_dir': '/Users/gustavo/.dbt', 'log_path': 'logs', 'printer_width': '80', 'send_anonymous_usage_stats': 'True', 'static_parser': 'True', 'use_experimental_parser': 'False'}
+[0m18:09:04.116467 [error] [MainThread]: Encountered an error:
+Runtime Error
+  No dbt_project.yml found at expected path /Users/gustavo/Documents/Projetos/project-olist/dbt_project.yml
+  Verify that each entry within packages.yml (and their transitive dependencies) contains a file named dbt_project.yml
+  
+[0m18:09:04.118237 [debug] [MainThread]: Resource report: {"command_name": "run", "command_success": false, "command_wall_clock_time": 0.04578683, "process_in_blocks": "0", "process_kernel_time": 0.160049, "process_mem_max_rss": "111493120", "process_out_blocks": "0", "process_user_time": 0.661875}
+[0m18:09:04.118768 [debug] [MainThread]: Command `dbt run` failed at 18:09:04.118712 after 0.05 seconds
+[0m18:09:04.118990 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x102304990>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10b251a90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10b251b90>]}
+[0m18:09:04.119202 [debug] [MainThread]: Flushing usage events
+[0m18:09:04.737634 [debug] [MainThread]: An error was encountered while trying to flush usage events
