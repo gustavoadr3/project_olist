@@ -22,3 +22,15 @@ resource "google_bigquery_dataset" "dataset_olist" {
     env = "default"
   }
 }
+
+resource "google_bigquery_dataset" "dataset_olist_gold" {
+  dataset_id                  = "olist_gold"
+  friendly_name               = "Olist Dataset Gold"
+  description                 = "Dataset Gold"
+  location                    = "US" 
+  default_table_expiration_ms = 3600000
+
+  labels = {
+    env = "default"
+  }
+}
