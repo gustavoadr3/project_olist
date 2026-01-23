@@ -1,1 +1,0 @@
-[2026-01-23T14:16:50.810+0000] {scheduler_job_runner.py:781} ERROR - Executor reports task instance <TaskInstance: olist_pipeline.orders_silver manual__2026-01-23T14:16:48.877991+00:00 [queued]> finished (success) although the task says it's queued. (Info: None) Was the task killed externally?
