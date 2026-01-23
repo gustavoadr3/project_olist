@@ -28,7 +28,7 @@ def write_silver_bigquery(client_json: str, df_gcp: DataFrame, func: Callable, p
                             if_exists="replace",
                             progress_bar=True
                         )
-        logger.info(f"{table_id} subida no Bigquery")
+        logger.success(f"{table_id} subida no Bigquery")
     
     except Exception as e:
         logger.error(f"Erro ao subir a tabela {table_id}: {e}")
