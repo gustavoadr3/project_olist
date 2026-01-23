@@ -1,7 +1,7 @@
-from scripts.airflow.validation_raw import validate_raw_files
+from scripts.airflow.upload_raw_gcs import upload_raw_to_gcs
 
 def main():
-    validate_raw_files()
+    upload_raw_to_gcs()
 
 if __name__ == "__main__":
     main()

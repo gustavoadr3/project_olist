@@ -1,11 +1,10 @@
 import sys
 sys.path.append("/opt/airflow")
-
 from airflow import DAG
 from airflow.operators.python import PythonOperator
 from datetime import datetime
-
 from scripts.airflow.validation_raw import validate_raw_files
+from scripts.airflow.upload_raw_gcs import upload_raw_to_gcs
 
 
 with DAG(
@@ -23,4 +22,9 @@ with DAG(
         python_callable=validate_raw_files,
     )
 
-    validate_raw
+    upload_gcs = PythonOperator(
+        task_id = "upload_raw_to_gcs",
+        python_callable=upload_raw_to_gcs
+    )
+
+    validate_raw >> upload_gcs

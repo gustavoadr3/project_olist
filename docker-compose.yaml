@@ -20,6 +20,8 @@ x-airflow-common:
     - ./data:/opt/airflow/data
     - ./schemas:/opt/airflow/schemas
     - ./scripts:/opt/airflow/scripts
+    - ./credentials:/opt/airflow/credentials
+
 
   depends_on:
     - postgres
