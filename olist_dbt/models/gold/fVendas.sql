@@ -4,6 +4,7 @@ select
     p.id_cliente,
     i.id_produto,
     i.id_vendedor,
+    p.status_pedido,
     c.id_data,
     i.preco,
     i.valor_frete,
