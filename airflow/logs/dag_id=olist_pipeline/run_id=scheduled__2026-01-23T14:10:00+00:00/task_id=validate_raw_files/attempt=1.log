@@ -1,0 +1,16 @@
+[2026-01-23T14:20:00.925+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: olist_pipeline.validate_raw_files scheduled__2026-01-23T14:10:00+00:00 [queued]>
+[2026-01-23T14:20:00.928+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: olist_pipeline.validate_raw_files scheduled__2026-01-23T14:10:00+00:00 [queued]>
+[2026-01-23T14:20:00.928+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 1
+[2026-01-23T14:20:00.933+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): validate_raw_files> on 2026-01-23 14:10:00+00:00
+[2026-01-23T14:20:00.937+0000] {standard_task_runner.py:60} INFO - Started process 423 to run task
+[2026-01-23T14:20:00.938+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'olist_pipeline', 'validate_raw_files', 'scheduled__2026-01-23T14:10:00+00:00', '--job-id', '27', '--raw', '--subdir', 'DAGS_FOLDER/pipeline_olist_dag.py', '--cfg-path', '/tmp/tmpg022ah1v']
+[2026-01-23T14:20:00.939+0000] {standard_task_runner.py:88} INFO - Job 27: Subtask validate_raw_files
+[2026-01-23T14:20:00.964+0000] {task_command.py:423} INFO - Running <TaskInstance: olist_pipeline.validate_raw_files scheduled__2026-01-23T14:10:00+00:00 [running]> on host 670cbe741020
+[2026-01-23T14:20:00.998+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='olist_pipeline' AIRFLOW_CTX_TASK_ID='validate_raw_files' AIRFLOW_CTX_EXECUTION_DATE='2026-01-23T14:10:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-01-23T14:10:00+00:00'
+[2026-01-23T14:20:01.000+0000] {logging_mixin.py:188} INFO - 2026-01-23 14:20:01 | INFO | Iniciando a validacao RAW
+[2026-01-23T14:20:02.173+0000] {logging_mixin.py:188} INFO - 2026-01-23 14:20:02 | INFO | Todas as colunas de todas as tabelas estão iguais
+[2026-01-23T14:20:02.173+0000] {logging_mixin.py:188} INFO - 2026-01-23 14:20:02 | SUCCESS | Validacao concluida com sucesso
+[2026-01-23T14:20:02.173+0000] {python.py:201} INFO - Done. Returned value was: None
+[2026-01-23T14:20:02.178+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=olist_pipeline, task_id=validate_raw_files, execution_date=20260123T141000, start_date=20260123T142000, end_date=20260123T142002
+[2026-01-23T14:20:02.202+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2026-01-23T14:20:02.212+0000] {taskinstance.py:3280} INFO - 1 downstream tasks scheduled from follow-on schedule check

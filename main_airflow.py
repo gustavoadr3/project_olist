@@ -1,7 +1,7 @@
-from scripts.airflow.upload_raw_gcs import upload_raw_to_gcs
+from scripts.airflow.silver.orders_silver import build_orders_silver
 
 def main():
-    upload_raw_to_gcs()
+    build_orders_silver()
 
 if __name__ == "__main__":
     main()

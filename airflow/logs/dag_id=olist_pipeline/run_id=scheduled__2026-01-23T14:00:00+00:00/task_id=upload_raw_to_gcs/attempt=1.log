@@ -1,0 +1,24 @@
+[2026-01-23T14:10:03.065+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: olist_pipeline.upload_raw_to_gcs scheduled__2026-01-23T14:00:00+00:00 [queued]>
+[2026-01-23T14:10:03.069+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: olist_pipeline.upload_raw_to_gcs scheduled__2026-01-23T14:00:00+00:00 [queued]>
+[2026-01-23T14:10:03.069+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 1
+[2026-01-23T14:10:03.073+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): upload_raw_to_gcs> on 2026-01-23 14:00:00+00:00
+[2026-01-23T14:10:03.076+0000] {standard_task_runner.py:60} INFO - Started process 281 to run task
+[2026-01-23T14:10:03.078+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'olist_pipeline', 'upload_raw_to_gcs', 'scheduled__2026-01-23T14:00:00+00:00', '--job-id', '22', '--raw', '--subdir', 'DAGS_FOLDER/pipeline_olist_dag.py', '--cfg-path', '/tmp/tmp9wx1oezx']
+[2026-01-23T14:10:03.079+0000] {standard_task_runner.py:88} INFO - Job 22: Subtask upload_raw_to_gcs
+[2026-01-23T14:10:03.097+0000] {task_command.py:423} INFO - Running <TaskInstance: olist_pipeline.upload_raw_to_gcs scheduled__2026-01-23T14:00:00+00:00 [running]> on host 670cbe741020
+[2026-01-23T14:10:03.126+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='olist_pipeline' AIRFLOW_CTX_TASK_ID='upload_raw_to_gcs' AIRFLOW_CTX_EXECUTION_DATE='2026-01-23T14:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-01-23T14:00:00+00:00'
+[2026-01-23T14:10:03.128+0000] {upload_raw_gcs.py:17} INFO - Iniciando upload dos arquivos RAW para o GCS
+[2026-01-23T14:10:04.838+0000] {logging_mixin.py:188} INFO - 2026-01-23 14:10:04 | SUCCESS | raw/olist/sellers/olist_sellers_dataset.csv subido com sucesso!
+[2026-01-23T14:10:05.161+0000] {logging_mixin.py:188} INFO - 2026-01-23 14:10:05 | SUCCESS | raw/olist/category_name/product_category_name_translation.csv subido com sucesso!
+[2026-01-23T14:10:07.530+0000] {logging_mixin.py:188} INFO - 2026-01-23 14:10:07 | SUCCESS | raw/olist/orders/olist_orders_dataset.csv subido com sucesso!
+[2026-01-23T14:10:09.682+0000] {logging_mixin.py:188} INFO - 2026-01-23 14:10:09 | SUCCESS | raw/olist/order_items/olist_order_items_dataset.csv subido com sucesso!
+[2026-01-23T14:10:11.504+0000] {logging_mixin.py:188} INFO - 2026-01-23 14:10:11 | SUCCESS | raw/olist/customers/olist_customers_dataset.csv subido com sucesso!
+[2026-01-23T14:10:16.264+0000] {logging_mixin.py:188} INFO - 2026-01-23 14:10:16 | SUCCESS | raw/olist/geolocation/olist_geolocation_dataset.csv subido com sucesso!
+[2026-01-23T14:10:17.925+0000] {logging_mixin.py:188} INFO - 2026-01-23 14:10:17 | SUCCESS | raw/olist/order_payments/olist_order_payments_dataset.csv subido com sucesso!
+[2026-01-23T14:10:20.036+0000] {logging_mixin.py:188} INFO - 2026-01-23 14:10:20 | SUCCESS | raw/olist/order_reviews/olist_order_reviews_dataset.csv subido com sucesso!
+[2026-01-23T14:10:21.530+0000] {logging_mixin.py:188} INFO - 2026-01-23 14:10:21 | SUCCESS | raw/olist/products/olist_products_dataset.csv subido com sucesso!
+[2026-01-23T14:10:21.531+0000] {upload_raw_gcs.py:33} INFO - Upload RAW para o GCS finalizado com sucesso
+[2026-01-23T14:10:21.531+0000] {python.py:201} INFO - Done. Returned value was: None
+[2026-01-23T14:10:21.552+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=olist_pipeline, task_id=upload_raw_to_gcs, execution_date=20260123T140000, start_date=20260123T141003, end_date=20260123T141021
+[2026-01-23T14:10:21.606+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2026-01-23T14:10:21.625+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check
