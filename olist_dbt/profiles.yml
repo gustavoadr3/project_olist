@@ -1,0 +1,12 @@
+olist_dbt:
+  target: dev
+  outputs:
+    dev:
+      type: bigquery
+      method: service-account
+      project: projectolist-483623
+      dataset: olist
+      location: US
+      keyfile: /opt/airflow/credentials/gcp_service_account.json
+      threads: 4
+      timeout_seconds: 300

@@ -9,7 +9,10 @@ x-airflow-common:
     AIRFLOW__CORE__LOAD_EXAMPLES: "false"
     AIRFLOW__WEBSERVER__EXPOSE_CONFIG: "true"
 
-    _PIP_ADDITIONAL_REQUIREMENTS: loguru
+    _PIP_ADDITIONAL_REQUIREMENTS: >
+      loguru
+      dbt-core
+      dbt-bigquery
 
   volumes:
     # Airflow
@@ -21,7 +24,7 @@ x-airflow-common:
     - ./schemas:/opt/airflow/schemas
     - ./scripts:/opt/airflow/scripts
     - ./credentials:/opt/airflow/credentials
-
+    - ./olist_dbt:/opt/airflow/dbt
 
   depends_on:
     - postgres
