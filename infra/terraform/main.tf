@@ -17,7 +17,7 @@ resource "google_bigquery_dataset" "dataset_olist" {
   description                 = "Dataset Silver"
   location                    = "US" 
   default_table_expiration_ms = 3600000
-
+  delete_contents_on_destroy = true
   labels = {
     env = "default"
   }
@@ -29,7 +29,7 @@ resource "google_bigquery_dataset" "dataset_olist_gold" {
   description                 = "Dataset Gold"
   location                    = "US" 
   default_table_expiration_ms = 3600000
-
+  delete_contents_on_destroy = true
   labels = {
     env = "default"
   }
