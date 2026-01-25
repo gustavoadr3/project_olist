@@ -2,6 +2,7 @@ import sys
 sys.path.append("/opt/airflow")
 from airflow import DAG
 from airflow.operators.python import PythonOperator
+from airflow.operators.bash import BashOperator
 from datetime import datetime
 from scripts.airflow.validation_raw import validate_raw_files
 from scripts.airflow.upload_raw_gcs import upload_raw_to_gcs
@@ -62,9 +63,33 @@ with DAG(
         python_callable=build_orders_payments_silver
     )
 
+    dbt_run_staging = BashOperator(
+        task_id="dbt_run_staging",
+        bash_command="""
+        cd /opt/airflow/dbt &&
+        dbt run --select staging
+        """,
+    )
+
+    dbt_run_gold = BashOperator(
+        task_id="dbt_run_gold",
+        bash_command="""
+        cd /opt/airflow/dbt &&
+        dbt run --select gold
+        """,
+    )
+
+    dbt_run_test = BashOperator(
+        task_id="dbt_test",
+        bash_command="""
+        cd /opt/airflow/dbt && 
+        dbt test
+        """,
+    )
+
     validate_raw >> upload_gcs >>   [orders_silver, 
                                     customers_silver, 
                                     ordems_items_silver,
                                     producst_silver,
                                     sellers_silver,
-                                    orders_payments_silver]
+                                    orders_payments_silver] >> dbt_run_staging >> dbt_run_gold >> dbt_run_test
